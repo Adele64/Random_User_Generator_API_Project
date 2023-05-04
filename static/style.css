@@ -1,0 +1,194 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f8f8f8;
+}
+
+
+#user-cards-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 20px;
+}
+
+.user-card {
+	position: relative; 
+	width: 300px;
+	background-color: #fff;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+	margin: 20px;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.user-card:hover {
+	transform: translateY(-10px);
+}
+
+.user-card .round-image {
+	position: relative;
+  background: #fff;
+  padding: 5px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.user-card .round-image img {
+	border-radius: 50%;
+	width: 100%;
+	height: auto;
+  }
+
+.user-card .round-image .refresh {
+	position: absolute;
+  bottom: -30px;
+  left: 50%;
+  padding: 10px 15px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 3px;
+  text-decoration: none;
+  opacity: 0;
+  display: block;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transition: all 0.25s ease-out;
+          transition: all 0.25s ease-out;
+}
+
+.user-card .round-image:hover .refresh {
+	bottom: -20px;
+	opacity: 1;
+  }
+
+.user-card .user_title {
+	position: relative;
+	font-size: 0.8em;
+	color: #999999;
+	margin: 0;
+}
+
+.user-card .user_value {
+	position: relative;
+	font-size: 1em;
+	color: #2c2e31;
+	margin: 5px;
+	text-transform: capitalize;
+}
+
+
+.user-card .delete-button-container {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 10px;
+	background-color: transparent;
+  }
+  
+.user-card .delete-button {
+	border: none;
+	background-color: transparent;
+	color: black;
+	font-weight: bold;
+	font-size: 24px;
+	cursor: pointer;
+}
+
+.values_list {
+	position: relative;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	float: left;
+  }
+
+.values_list li {
+	cursor: pointer;
+	object-fit: contain;
+	display: block;
+	width: 40px;
+	height: 48px;
+	float: left;
+	margin: 20px;
+	background-image: url(../static/card_icons.png);
+	-webkit-background-size: 378px 378px;
+			background-size: 378px;
+	background-position-y: -48px;
+	-webkit-transition: all 0.25s ease-out;
+			transition: all 0.25s ease-out;
+  }
+  .values_list li:before {
+	content: attr(data-label);
+	opacity: 0;
+  }
+  .values_list li.active[data-label="name"] {
+	background-position: 0px -96px;
+  }
+  .values_list li.active[data-label="email"] {
+	background-position: -68px -96px;
+  }
+  .values_list li.active[data-label="birthday"] {
+	background-position: -135px -96px;
+  }
+  .values_list li.active[data-label="location"] {
+	background-position: -203px -96px;
+  }
+  .values_list li.active[data-label="phone"] {
+	background-position: -270px -96px;
+  }
+  .values_list li.active[data-label="pass"] {
+	background-position: -338px -96px;
+  }
+  .values_list li[data-label="name"] {
+	background-position: 0px -48px;
+  }
+  .values_list li[data-label="email"] {
+	background-position: -68px -48px;
+  }
+  .values_list li[data-label="birthday"] {
+	background-position: -135px -48px;
+  }
+  .values_list li[data-label="location"] {
+	background-position: -203px -48px;
+  }
+  .values_list li[data-label="phone"] {
+	background-position: -270px -48px;
+  }
+  .values_list li[data-label="pass"] {
+	background-position: -338px -48px;
+  }
+
+  .buttons-container {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+  }
+  
+  .gender-button {
+	border: none;
+	background-color: transparent;
+	font-size: 16px;
+	padding: 10px 20px;
+	margin: 0 10px;
+	cursor: pointer;
+	transition: transform 0.2s ease-in-out;
+  }
+  
+  .gender-button.active {
+	transform: scale(2.1);
+  }
+  

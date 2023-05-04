@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Random User Cards</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+	
+	<div class="buttons-container">
+		<button class="gender-button active" data-gender="all">All</button>
+		<button class="gender-button" data-gender="male">Male</button>
+		<button class="gender-button" data-gender="female">Female</button>
+	</div>
+	  
+
+	<div id="user-cards-container">
+
+		<script>
+			let dataUsers =  JSON.parse('{{ users | tojson }}');
+		</script>
+		{% for user in users %}
+		<div class="user-card" data-id="{{ user.login.uuid }}" data-gender="{{ user.gender }}"> 
+			<div class="round-image">
+				<img src="{{ user.picture.large }}" >	
+				<a href="javascript:void(0)" class="refresh" onclick="getNewUser()">New</a>
+			</div>
+			<p class="user_title" ></p>
+			<p id="user_value_{{ user.login.uuid }}" class="user_value" style="text-transform: capitalize;">{{ user.name.first }} {{ user.name.last }}</p>
+				<div class="delete-button-container">
+					<button class="delete-button">X</button>
+				</div>
+
+				<ul class="values_list">
+					<li data-title="Hi, My name is" data-label="name"></li>
+					<li data-title="My email address is" data-label="email"></li>
+					<li data-title="My birthday is" data-label="birthday"></li>
+					<li data-title="My address is" data-label="location"></li>
+					<li data-title="Hi, My phone number is" data-label="phone"></li>
+					<li data-title="My password is" data-label="pass"></li>
+
+				</ul>
+				
+		</div>
+		{% endfor %}
+</div>
+
+
+	<script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
